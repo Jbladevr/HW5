@@ -1,16 +1,16 @@
 CREATE TABLE Phone (
   Primary_phone_ID INT PRIMARY KEY,
-  Country_Code INT,
-  Area_Code VARCHAR(4),
-  Local_Number VARCHAR(8)
+  Country_Code INT NOT NULL,
+  Area_Code VARCHAR(4) NOT NULL,
+  Local_Number VARCHAR(8) NOT NULL
 );
 
 CREATE TABLE Mailing_address (
-  Street VARCHAR(33),
-  City VARCHAR(17), 
-  Province_state VARCHAR (20),
-  Postal_code VARCHAR(6), 
-  Country VARCHAR(20), 
+  Street VARCHAR(33) NOT NULL,
+  City VARCHAR(17) NOT NULL, 
+  Province_state VARCHAR (20) NOT NULL,
+  Postal_code VARCHAR(6) NOT NULL, 
+  Country VARCHAR(20) NOT NULL, 
   PRIMARY KEY (Street, City) 
 );
 
@@ -38,10 +38,10 @@ CREATE TABLE Flight (
 );
 
 CREATE TABLE Customer (
-  First_name VARCHAR(20),
-  Last_name VARCHAR(20),
-  Mailing_address_street VARCHAR(33),
-  Mailing_address_city VARCHAR(17),
+  First_name VARCHAR(20) NOT NULL,
+  Last_name VARCHAR(20) NOT NULL,
+  Mailing_address_street VARCHAR(33) NOT NULL,
+  Mailing_address_city VARCHAR(17) NOT NULL,
   Primary_phone_ID INT REFERENCES Phone,
   Email VARCHAR(40),
   PRIMARY KEY (First_name, Last_name),
