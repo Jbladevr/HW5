@@ -1,17 +1,17 @@
 CREATE TABLE Phone (
   Primary_phone_ID INT PRIMARY KEY,
   Country_Code INT NOT NULL,
-  Area_Code VARCHAR(4) NOT NULL,
+  Area_Code INT NOT NULL,
   Local_Number VARCHAR(8) NOT NULL
 );
 
 CREATE TABLE Mailing_address (
+  Address_ID INT NOT NULL PRIMARY KEY,
   Street VARCHAR(33) NOT NULL,
   City VARCHAR(17) NOT NULL, 
   Province_state VARCHAR (20) NOT NULL,
   Postal_code VARCHAR(6) NOT NULL, 
-  Country VARCHAR(20) NOT NULL, 
-  PRIMARY KEY (Street, City) 
+  Country VARCHAR(20) NOT NULL 
 );
 
 CREATE TABLE Airport (
@@ -40,13 +40,10 @@ CREATE TABLE Flight (
 CREATE TABLE Customer (
   First_name VARCHAR(20) NOT NULL,
   Last_name VARCHAR(20) NOT NULL,
-  Mailing_address_street VARCHAR(33) NOT NULL,
-  Mailing_address_city VARCHAR(17) NOT NULL,
+  Mailing_Address_ID INT NOT NULL REFERENCES Mailing_address,
   Primary_phone_ID INT REFERENCES Phone,
   Email VARCHAR(40),
-  PRIMARY KEY (First_name, Last_name),
-  FOREIGN KEY(Mailing_address_street,Mailing_address_city)
-  REFERENCES Mailing_address (Street,City) 
+  PRIMARY KEY (First_name, Last_name)
 );
 
 CREATE TABLE Booking (
