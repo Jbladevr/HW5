@@ -48,7 +48,7 @@ CREATE TABLE Customer (
 
 CREATE TABLE Booking (
   Booking_number INT PRIMARY KEY,
-  Code_city_booked INT,
+  city_booked VARCHAR(17),
   Date_booked VARCHAR(10),
   First_name_payment VARCHAR(15),
   Last_name_payment VARCHAR(15),
